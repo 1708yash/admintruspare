@@ -1,5 +1,6 @@
 import 'package:admintruspare/views/side_bar_screens/banner_upload_screen.dart';
 import 'package:admintruspare/views/side_bar_screens/categories_screen.dart';
+import 'package:admintruspare/views/side_bar_screens/contact_us.dart';
 import 'package:admintruspare/views/side_bar_screens/dashboard_Screen.dart';
 import 'package:admintruspare/views/side_bar_screens/orders_screen.dart';
 import 'package:admintruspare/views/side_bar_screens/product_screen.dart';
@@ -20,29 +21,10 @@ class _MainScreenState extends State<MainScreen> {
 
   screenSelector(item) {
     switch (item.route) {
+
       case DashboardScreen.routeName:
         setState(() {
           _selectedItem = DashboardScreen();
-        });
-        break;
-      case BannerScreen.routeName:
-        setState(() {
-          _selectedItem = BannerScreen();
-        });
-        break;
-      case CategoriesScreen.routeName:
-        setState(() {
-          _selectedItem = CategoriesScreen();
-        });
-        break;
-      case OrdersScreen.routeName:
-        setState(() {
-          _selectedItem = OrdersScreen();
-        });
-        break;
-      case ProductScreen.routeName:
-        setState(() {
-          _selectedItem = ProductScreen();
         });
         break;
       case VendorsScreen.routeName:
@@ -50,11 +32,40 @@ class _MainScreenState extends State<MainScreen> {
           _selectedItem = VendorsScreen();
         });
         break;
+
       case WithdrawalScreen.routeName:
         setState(() {
           _selectedItem = WithdrawalScreen();
         });
         break;
+      case OrdersScreen.routeName:
+        setState(() {
+          _selectedItem = OrdersScreen();
+        });
+        break;
+
+      case CategoriesScreen.routeName:
+        setState(() {
+          _selectedItem = CategoriesScreen();
+        });
+        break;
+
+      case ProductScreen.routeName:
+        setState(() {
+          _selectedItem = ProductScreen();
+        });
+        break;
+      case BannerScreen.routeName:
+        setState(() {
+          _selectedItem = BannerScreen();
+        });
+        break;
+      case ContactUScreen.routeName:
+        setState(() {
+          _selectedItem = ContactUScreen();
+        });
+        break;
+
     }
   }
 
@@ -77,8 +88,8 @@ class _MainScreenState extends State<MainScreen> {
               icon: Icons.people_alt_sharp,
               route: VendorsScreen.routeName),
           AdminMenuItem(
-              title: 'Withdrawal',
-              icon: Icons.currency_rupee,
+              title: 'Returns',
+              icon: Icons.assignment_return,
               route: WithdrawalScreen.routeName),
           AdminMenuItem(
               title: 'Orders',
@@ -96,6 +107,10 @@ class _MainScreenState extends State<MainScreen> {
               title: 'Products',
               icon: Icons.production_quantity_limits_sharp,
               route: ProductScreen.routeName),
+          AdminMenuItem(
+              title: 'ContactUs',
+              icon: Icons.contact_phone_outlined,
+              route: ContactUScreen.routeName),
         ],
         selectedRoute: '',
         onSelected: (item) {
