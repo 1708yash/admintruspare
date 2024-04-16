@@ -59,81 +59,83 @@ class _BannerScreenState extends State<BannerScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(children: [
-        Container(
-          alignment: Alignment.topLeft,
-          padding: const EdgeInsets.all(10),
-          child: const Text(
-            'Upload Banners',
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
+      child: Column(
+        children: [
+          Container(
+            alignment: Alignment.topLeft,
+            padding: const EdgeInsets.all(10),
+            child: const Text(
+              'Upload Banners',
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
+            ),
           ),
-        ),
-        Divider(
-          color: Colors.orange,
-        ),
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                children: [
-                  Container(
-                    height: 140,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.shade400,
-                        border: Border.all(color: Colors.orange.shade400),
-                        borderRadius: BorderRadius.circular(8)),
-                    child: _image != null
-                        ? Image.memory(
-                            _image,
-                            fit: BoxFit.cover,
-                          )
-                        : Center(
-                            child: Icon(
-                              Icons.upload_file_sharp,
-                              size: 36,
-                            ),
-                          ),
-                  ),
-                  SizedBox(height: 24),
-                  ElevatedButton(
-                      onPressed: () {
-                        pickImage();
-                      },
-                      child: Text('Upload Banner'))
-                ],
+          Divider(
+            color: Colors.orange,
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 140,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.shade400,
+                          border: Border.all(color: Colors.orange.shade400),
+                          borderRadius: BorderRadius.circular(8)),
+                      child: _image != null
+                          ? Image.memory(
+                        _image,
+                        fit: BoxFit.cover,
+                      )
+                          : Center(
+                        child: Icon(
+                          Icons.upload_file_sharp,
+                          size: 36,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 24),
+                    ElevatedButton(
+                        onPressed: () {
+                          pickImage();
+                        },
+                        child: Text('Upload Banner'))
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              width: 30,
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    textStyle: TextStyle(color: Colors.white)),
-                onPressed: () {
-                  uploadToFirebaseStore();
-                },
-                child: Text('Save Banner')),
-          ],
-        ),
-        Divider(
-          color: Colors.orange,
-        ),
-        Container(
-          alignment: Alignment.topLeft,
-          padding: const EdgeInsets.all(10),
-          child: const Text(
-            'Banners Running',
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
+              SizedBox(
+                width: 30,
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      textStyle: TextStyle(color: Colors.white)),
+                  onPressed: () {
+                    uploadToFirebaseStore();
+                  },
+                  child: Text('Save Banner')),
+            ],
           ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        BannerWidget(),
-      ]),
+          Divider(
+            color: Colors.orange,
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            padding: const EdgeInsets.all(10),
+            child: const Text(
+              'Banners Running',
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          BannerWidget(context: context),
+        ],
+      ),
     );
   }
 }
